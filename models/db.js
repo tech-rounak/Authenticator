@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const  url = "mongodb://localhost:27017/Authenticator"
+const  url = "mongodb+srv://basic-authentifier:basic-authentifier@cluster0.zxlwj.mongodb.net/?retryWrites=true&w=majority"
+// const  url = "mongodb://localhost:27017/Authenticator"
 mongoose.connect(url,{
     useNewUrlParser:true,
     useUnifiedTopology:true
