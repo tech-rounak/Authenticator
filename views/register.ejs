@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Authenticator | SignUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+
+<body>
+    <div class="signup-form">
+        <form action="/user/save" method="post" name="f2" id="f2">
+            <h2>Register</h2>
+            <p class="hint-text">Create your account. It's free and only takes a minute.(for Buyers)</p>
+            <div class="form-group">
+                <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter User Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="mail_id" id="mail_id" onblur="checkEmail(this.value)" placeholder="Enter Email">
+                <span class="glyphicon glyphicon-ok" id="correct"></span>
+                <span class="glyphicon glyphicon-remove" id="wrong"></span>
+                <p class="small">error</p>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required>
+                <span class="glyphicon glyphicon-ok" id="correct"></span>
+                <span class="glyphicon glyphicon-remove" id="wrong"></span>
+                <p class="small">error</p>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="cpwd" name="cpwd" placeholder="Password" onchange="checkPassword()" required>
+                <span class="glyphicon glyphicon-ok" id="correct"></span>
+                <span class="glyphicon glyphicon-remove" id="wrong"></span>
+                <p class="small">error</p>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control success" placeholder="Enter Contact" onblur="checkContact(this.value)"name="contact_no" id="contact_no">
+                <!-- <span id="printContact" class = "printContact" name= "printContact"></span> -->
+                <span class="glyphicon glyphicon-ok" id="correct"></span>
+                <span class="glyphicon glyphicon-remove" id="wrong"></span>
+                <p class="small">error</p>
+            </div>
+
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="Date of Birth" name="dob" id="dob">
+                
+            </div>
+
+            <div class="form-group">
+
+                <b>Gender</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="gender" value="male" class="mr-4"> Male&nbsp;&nbsp;
+                <input type="radio" name="gender" value="female" class="mr-4">&nbsp;Female
+            </div>
+
+
+            <div class="form-group">
+                <input type="hidden" name="capca" id="capca">
+                <h3>Captcha:
+                    <p class="captcha" id="captcha">
+                        <%=Math.floor(1000+Math.random()*10000)%>
+                    </p></h3>
+
+                <input type="button" class="cap" value=&#x27F3>
+                <input type="text" class="form-control"  onblur="check_captcha(this.value)" placeholder="Enter Captcha" name="cap" class="cap">
+            </div>
+            <div class="form-group ">
+            </div>
+            <div class="form-group">
+                <button type="submit" disabled="disabled" id="sub" value="Register Now"
+                    class="btn btn-success btn-lg btn-block">Register Now</button>
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a href="/user/signin">Sign in</a></div>
+    </div>
+</body>
+<script src="assets/js/main.js"></script>
+<script src="../js/registerJS.js"></script>
+
+</html>
